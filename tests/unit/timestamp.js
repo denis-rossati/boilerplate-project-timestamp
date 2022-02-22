@@ -35,17 +35,17 @@ describe('convertTimestamp', () => {
 
   describe('with unix time', () => {
     it('should return the expected result when the input is valid', () => {
-      assert.strictEqual(convertTimestamp('1451001600000'), expectedResult);
+      assert.deepStrictEqual(convertTimestamp('1451001600000'), expectedResult);
     });
   });
 
   describe('with dates', () => {
     it('should return the expected result when the input is valid', () => {
-      assert.strictEqual(convertTimestamp('2015-12-25'), expectedResult);
+      assert.deepStrictEqual(convertTimestamp('2015-12-25'), expectedResult);
     });
   });
 
   it('should return null when the input is invalid', () => {
-    assert.strictEqual(convertTimestamp('foo'), null);
+    assert.deepStrictEqual(convertTimestamp('foo'), null);
   });
 });
