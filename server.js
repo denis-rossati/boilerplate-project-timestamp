@@ -12,10 +12,6 @@ app.get('/', (req, res) => {
   res.sendFile(`${__dirname}/views/index.html`);
 });
 
-app.get('/api/hello', (req, res) => {
-  res.json({ greeting: 'hello API' });
-});
-
 app.get('/api/:timestamp', (req, res) => {
   const { timestamp } = req.params;
   const result = convertTimestamp(timestamp);
