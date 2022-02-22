@@ -3,6 +3,8 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 
+const {convertTimestamp} = require('./timestamp');
+
 app.use(cors({ optionsSuccessStatus: 200 }));
 app.use(express.static('public'));
 
@@ -16,6 +18,12 @@ app.get('/api/hello', (req, res) => {
 
 app.get('/api/:timestamp', (req, res) => {
   const { timestamp } = req.params;
+  const result = convertTimestamp(timestamp);
+  if (result) {
+    res.status(200).json(result);
+  } else {
+    res.status(200).json({ error: 'Invalid Date' });
+  }
 });
 
 app.get('/api', (req, res) => {
