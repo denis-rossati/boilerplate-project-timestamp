@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 
-const {convertTimestamp} = require('./timestamp');
+const { convertTimestamp } = require('./timestamp');
 
 app.use(cors({ optionsSuccessStatus: 200 }));
 app.use(express.static('public'));
@@ -29,8 +29,6 @@ app.get('/api', (req, res) => {
 });
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Api listening port ${PORT}`);
-});
+app.listen(PORT);
 
 module.exports = app;
