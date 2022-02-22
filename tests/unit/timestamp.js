@@ -45,7 +45,7 @@ describe('convertTimestamp', () => {
     });
   });
 
-  it('should return null when the input is valid', () => {
+  it('should return null when the input is invalid', () => {
     assert.strictEqual(convertTimestamp('foo'), null);
   });
 });
