@@ -24,7 +24,7 @@ app.get('/api/:timestamp', (req, res) => {
 
 app.get('/api', (req, res) => {
   const unix = Date.now();
-  const utc = new Date(Date.now() * 1000);
+  const utc = new Date(Date.now()).toUTCString();
   res.status(200).send({ unix, utc });
 });
 
