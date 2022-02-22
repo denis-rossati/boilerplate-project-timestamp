@@ -19,6 +19,9 @@ app.get('/api/:timestamp', (req, res) => {
 });
 
 app.get('/api', (req, res) => {
+  const unix = Date.now();
+  const utc = new Date(Date.now() * 1000);
+  res.status(200).send({ unix, utc });
 });
 
 const PORT = process.env.PORT || 3000;
