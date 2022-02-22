@@ -18,6 +18,16 @@ const convertTimestamp = (timestamp) => {
       utc,
     };
   }
+
+  if (dateIsValid(timestamp)) {
+    const unix = new Date(timestamp).getTime();
+    const utc = new Date(timestamp).toUTCString();
+    return {
+      unix,
+      utc,
+    };
+  }
+
   return null;
 };
 
