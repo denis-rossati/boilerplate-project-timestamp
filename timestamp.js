@@ -10,7 +10,15 @@ const isUnixTime = (timestamp) => {
 };
 
 const convertTimestamp = (timestamp) => {
-
+  if (isUnixTime(timestamp)) {
+    const unix = new Date(timestamp * 1000).getTime() / 1000;
+    const utc = new Date(Number(timestamp)).toUTCString();
+    return {
+      unix,
+      utc,
+    };
+  }
+  return null;
 };
 
 module.exports = {
